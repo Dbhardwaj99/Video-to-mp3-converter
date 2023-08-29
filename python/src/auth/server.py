@@ -20,7 +20,7 @@ def login():
     #check for username and password
     cur = mysql.connection.cursor()
     res = cur.execute(
-        "SELECT email, password FROM user WHERE email=½5", (auth.username,)
+        "SELECT email, password FROM user WHERE email=%s", (auth.username,)
     )
 
     if res > 0:
@@ -66,4 +66,4 @@ def createJWT(username, secrect, authz):
 
 if __name__ == "__main__":
     print(__name__)
-    server.run(host="0.0.0.0", port=5000, debug=True)
+    server.run(host="0.0.0.0", port=5000)
